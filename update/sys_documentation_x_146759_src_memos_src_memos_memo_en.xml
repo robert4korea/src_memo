@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="memo" label="Memo" language="en" table="x_146759_src_memos_src_memos">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>memo</element>
+            <help/>
+            <hint/>
+            <label>Memo</label>
+            <language>en</language>
+            <name>x_146759_src_memos_src_memos</name>
+            <plural>Memos</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-07-17 13:09:28</sys_created_on>
+            <sys_id>4c2f9d624f5313009bda926ca310c78b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Memo</sys_name>
+            <sys_package display_value="SRC Memos" source="x_146759_src_memos">4a2e996e4f1313009bda926ca310c78f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SRC Memos">4a2e996e4f1313009bda926ca310c78f</sys_scope>
+            <sys_update_name>sys_documentation_x_146759_src_memos_src_memos_memo_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-07-17 13:09:28</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

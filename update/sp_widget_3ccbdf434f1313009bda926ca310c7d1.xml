@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.result-container {
+ margin-top: 10px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>src_memos</id>
+        <internal>false</internal>
+        <link/>
+        <name>SRC Memos</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	if (input)
+		data.items = getCatalogItems(input.keywords);
+	
+	function getCatalogItems(keywords) {
+		var sc = new GlideRecord('x_146759_src_memos_src_memos');
+		sc.addActiveQuery();
+		sc.addQuery('pd', keywords);
+		sc.query();
+		var results = [];
+		while (sc.next()) {
+			if (!$sp.canReadRecord(sc))
+				continue;
+
+			var item = {};
+			$sp.getRecordDisplayValues(item, sc, 'pd,title,pp,ser,gd,coverage,approval_date,approval_by,retirement_csrs_fers_or_both,date_classified,memo');
+			results.push(item);
+		}
+		return results;
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-19 11:30:59</sys_created_on>
+        <sys_id>3ccbdf434f1313009bda926ca310c7d1</sys_id>
+        <sys_mod_count>52</sys_mod_count>
+        <sys_name>SRC Memos</sys_name>
+        <sys_package display_value="SRC Memos" source="x_146759_src_memos">4a2e996e4f1313009bda926ca310c78f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SRC Memos">4a2e996e4f1313009bda926ca310c78f</sys_scope>
+        <sys_update_name>sp_widget_3ccbdf434f1313009bda926ca310c7d1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-19 17:36:16</sys_updated_on>
+        <template><![CDATA[<div>
+<h2>Special Retirement Coverage (SRC) Memo Search </h2>
+<p> Positions classified into certain occupational series require approval for special retirement coverage (SRC) 
+purposes under title 5 U.S. Code § 8336(c), § 8412(d), or § 8412(e). This tool will assist users 
+in determining if a Position Description (PD) has been approved or denied for SRC.  New PDs will be added to this tool as new memos are received. 
+</p><p>
+Note: Approved PDs can predate the Fully Automated System for Classification (FASCLASS), therefore PDs identified in this tool may or may not be available in FASCLASS.
+  </p>
+<h4> Special Retirement Coverage (SRC) Approved PDs </h4>
+
+<div class="panel panel-primary">
+ <div class="panel-heading">To verify position approval for SRC, start type in the PD number below.</div>
+ <div class="panel-body">
+   <input class="form-control" type="search" placeholder="Start typing PD Number" ng-model="c.data.keywords" ng-change="c.server.update()" ng-model-options="{debounce: 250}" />
+ </div>
+</div>
+
+<table st-table="item" class="table table-striped">
+  <thead>
+  <tr>
+    <th>PD</th>
+    <th>Title</th>
+    <th>PP</th>
+    <th>SER</th>
+    <th>GD</th>
+    <th>Coverage</th>
+    <th>Approval Date</th>
+    <th>Approval By</th>
+    <th>Retirement</th>
+    <th>Date Classified</th>
+    <th>Memo</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="item in c.data.items">
+    <td>{{item.pd}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.pp}}</td>
+    <td>{{item.ser}}</td>
+    <td>{{item.gd}}</td>
+    <td>{{item.coverage}}</td>
+    <td>{{item.approval_date}}</td>
+    <td>{{item.approval_by}}</td>
+    <td>{{item.retirement_csrs_fers_or_both}}</td>
+    <td>{{item.date_classified}}</td>
+    <td><a href="{{item.memo}}" target="_blank">{{item.memo}}</a></td>
+    </tr>
+  </tbody>
+  </table>
+  
+ ]]></template>
+    </sp_widget>
+</record_update>

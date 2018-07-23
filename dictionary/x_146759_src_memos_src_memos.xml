@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="SRC Memos" max_length="40" name="x_146759_src_memos_src_memos" text_index="true" type="collection">
+        <element label="Approval By" max_length="5" name="approval_by" type="string"/>
+        <element label="Approval Date" max_length="40" name="approval_date" type="glide_date"/>
+        <element label="Coverage" max_length="50" name="coverage" type="string"/>
+        <element label="Date Classified" max_length="40" name="date_classified" type="glide_date"/>
+        <element label="GD" max_length="2" name="gd" type="string"/>
+        <element label="Memo" max_length="200" name="memo" type="url"/>
+        <element label="PD" max_length="10" name="pd" type="string"/>
+        <element label="PP" max_length="2" name="pp" type="string"/>
+        <element label="Retirement (CSRS FERS or Both)" max_length="4" name="retirement_csrs_fers_or_both" type="string"/>
+        <element label="SER" max_length="4" name="ser" type="string"/>
+        <element label="Title" max_length="150" name="title" type="string"/>
+    </element>
+</database>
